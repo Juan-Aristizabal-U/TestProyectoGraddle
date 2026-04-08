@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+      <h:head>
+        <title>Facelets Hello Greeting</title>
+    </h:head>
+    <h:body>
+
+        <p:card style="width: 25rem; margin-bottom: 2em">
+
+            <f:facet name="title" >Gestionar Docentes</f:facet>
+            
+            <h:panelGrid columns="3">
+                
+                <p:outputLabel for="txfCodigo" value="Codigo : "/>
+                <p:inputText id="txfCodigo"></p:inputText>
+                <p:message for="txfCodigo"></p:message>
+                
+                <p:outputLabel for="txfNombre" value="Nombre : "/>
+                <p:inputText id="txfNombre"></p:inputText>
+                <p:message for="txfNombre"></p:message>
+                
+                <p:outputLabel for="txfCorreo" value="Correo : "/>
+                <p:inputText id="txfCorreo"></p:inputText>
+                <p:message for="txfCorreo"></p:message>
+                
+                <p:outputLabel for="txfIntensidad" value="Intensidad : "/>
+                <p:inputNumber id="txfIntensidad"></p:inputNumber>
+                <p:message for="txfIntensidad"></p:message>
+                
+            </h:panelGrid>
+            
+            <f:facet name="footer" >
+
+                <p:commandButton icon="pi pi-check" value="Save"/>
+                <p:commandButton icon="pi pi-times" value="Cancel" 
+                                 styleClass="ui-button-secondary" 
+                                 style="margin-left: .5em"/>
+
+            </f:facet>
+
+        </p:card>
+
+
+    </h:body>
+</html>
