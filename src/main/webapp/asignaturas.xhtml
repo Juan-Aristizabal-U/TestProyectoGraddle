@@ -19,19 +19,19 @@
                 <h:panelGrid columns="3">
 
                     <p:outputLabel for="txfCodigo" value="Codigo : "/>
-                    <p:inputText id="txfCodigo"></p:inputText>
+                    <p:inputText id="txfCodigo" value="#{asignCtrl.asignatura.codigo}"></p:inputText>
                     <p:message for="txfCodigo"></p:message>
 
                     <p:outputLabel for="txfNombre" value="Nombre : "/>
-                    <p:inputText id="txfNombre"></p:inputText>
+                    <p:inputText id="txfNombre" value="#{asignCtrl.asignatura.nombre}"></p:inputText>
                     <p:message for="txfNombre"></p:message>
 
                     <p:outputLabel for="txfCreditos" value="Creditos : "/>
-                    <p:inputNumber id="txfCreditos"></p:inputNumber>
+                    <p:inputNumber id="txfCreditos" value="#{asignCtrl.asignatura.creditos}"></p:inputNumber>
                     <p:message for="txfCreditos"></p:message>
 
                     <p:outputLabel for="txfIntensidad" value="Intensidad : "/>
-                    <p:inputNumber id="txfIntensidad"></p:inputNumber>
+                    <p:inputNumber id="txfIntensidad" value="#{asignCtrl.asignatura.intensidad}"></p:inputNumber>
                     <p:message for="txfIntensidad"></p:message>
 
                 </h:panelGrid>
