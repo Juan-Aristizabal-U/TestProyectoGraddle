@@ -4,13 +4,19 @@
  */
 package co.edu.uvpalmira.fpo.web.modelo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 /**
  *
  * @author Sala Sistemas
  */
+
+@Entity
 public class Asignatura {
     
     //Atributos propios
+    @Id
     private String codigo; 
     private String nombre;
     private byte creditos;
@@ -41,6 +47,24 @@ public class Asignatura {
         return intensidad;
     }
 
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCreditos(byte creditos) {
+        this.creditos = creditos;
+    }
+
+    public void setIntensidad(byte intensidad) {
+        this.intensidad = intensidad;
+    }
+
+    
+    
     
     
 }
