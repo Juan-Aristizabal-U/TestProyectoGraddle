@@ -4,8 +4,11 @@
  */
 package co.edu.uvpalmira.fpo.web.modelo;
 
+import co.edu.uvpalmira.fpoe.jpalib.AbstractEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 
 /**
  *
@@ -13,15 +16,33 @@ import jakarta.persistence.Id;
  */
 
 @Entity
-public class Asignatura {
+@NamedQueries({
+    @NamedQuery(name = "Asignatura.buscarPorCodigo",
+            query = "SELECT a FROM Asignatura a WHERE a.codigo = :codigo"),
     
-    //Atributos propios
-    @Id
+    @NamedQuery(name = "Asignatura.buscarPorEscuela",
+            query = "SELECT a FROM Asignatura a WHERE a.codigo LIKE :prefijo ORDER BY a.codigo ASC")
+})
+
+public class Asignatura extends AbstractEntity {
+    
+    //Atributos propios y sus condiciones 
+    @Column(nullable = false, length = 7, unique = true)
     private String codigo; 
+    
+    @Column(nullable = false, length = 150, unique = false)
     private String nombre;
+    
+    @Column(nullable = false)
     private byte creditos;
+    
+    @Column(nullable = false)
     private byte intensidad;
 
+    public Asignatura() {
+    }
+
+    
     //Contructor
     public Asignatura(String codigo, String nombre, byte creditos, byte intensidad) {
         this.codigo = codigo;
@@ -46,7 +67,12 @@ public class Asignatura {
     public byte getIntensidad() {
         return intensidad;
     }
+    
+    public Long getId() {
+        return id;
+    }
 
+    //Metodos Set
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -62,6 +88,16 @@ public class Asignatura {
     public void setIntensidad(byte intensidad) {
         this.intensidad = intensidad;
     }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    
+    
+   
+
+    
 
     
     
