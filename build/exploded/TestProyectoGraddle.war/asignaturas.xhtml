@@ -10,10 +10,9 @@
         <title>Facelets Hello Greeting</title>
     </h:head>
     <h:body>
-        <h:form>
 
+        <h:form id="formulario" >
             <p:card style="width: 25rem; margin-bottom: 2em">
-
                 <f:facet name="title" >Gestionar Asignaturas</f:facet>
 
                 <h:panelGrid columns="3">
@@ -36,40 +35,33 @@
 
                 </h:panelGrid>
 
+
+                <p:messages id="mensajes" globalOnly="true" closable="true" />
+
                 <f:facet name="footer" >
 
-                    <p:commandButton icon="pi pi-check" value="Save"/>
-                    <p:commandButton icon="pi pi-times" value="Cancel" 
+                    <p:commandButton icon="pi pi-check" value="Guardar"
+                                     action="#{asignCtrl.guardar()}"
+                                     process="@this txfCodigo txfNombre txfCreditos txfIntensidad"
+                                     update="mensajes txfCodigo txfNombre txfCreditos txfIntensidad tabla"/>
+                                     
+                    <p:commandButton icon="pi pi-times" value="Cancelar" 
                                      styleClass="ui-button-secondary" 
-                                     style="margin-left: .5em"/>
+                                     style="margin-left: .5em"
+                                     action="#{asignCtrl.cancelar()}"
+                                     process="@this"
+                                     update="mensajes txfCodigo txfNombre txfCreditos txfIntensidad"/>
 
                 </f:facet>
-
-
             </p:card>
-
-
         </h:form>
-        
-        
-        <p:card style="width: 50rem; margin-bottom: 2em">
-            <p:dataTable var="product" value="#{dtBasicView.products}">
-                <p:column headerText="Code">
-                    <h:outputText value="#{product.code}" />
-                </p:column>
 
-                <p:column headerText="Name">
-                    <h:outputText value="#{product.name}" />
-                </p:column>
-
-                <p:column headerText="Category">
-                    <h:outputText value="#{product.category}" />
-                </p:column>
-
-                <p:column headerText="Quantity">
-                    <h:outputText value="#{product.quantity}" />
-                </p:column>
-            </p:dataTable>
-        </p:card>
+        <p:dataTable id="tabla" value="#{asignCtrl.asignaturas}" var="obj" >
+            <p:column headerText="Codigo">#{obj.codigo}</p:column>
+            <p:column headerText="Nombre">#{obj.nombre}</p:column>
+            <p:column headerText="Creditos">#{obj.creditos}</p:column>
+            <p:column headerText="Intesidad">#{obj.intensidad}</p:column>
+        </p:dataTable> 
+            
     </h:body>
 </html>
